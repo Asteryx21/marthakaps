@@ -3,17 +3,17 @@
     <section class="slider-container">
       <!-- Image Display -->
       <div class="slider">
-        <img :src="images[currentIndex]" alt="Slider Image" />
+        <img :src="images[currentIndex]" alt="Slider Image" loading="lazy" />
       </div>
 
       <!-- Arrow Buttons (Below the Image) -->
       <div class="arrow-container">
-        <button class="arrow left-arrow" @click="prevSlide">&#8592;</button>
-        <button class="arrow right-arrow" @click="nextSlide">&#8594;</button>
+        <span class="arrow" @click="prevSlide">&#8592;</span>
+        <span class="arrow" @click="nextSlide">&#8594;</span>
       </div>
     </section>
 
-    <section>
+    <section class="text-container">
       Lorem ipsum dolor sit amet. Sit architecto officiis quo rerum velit ut repudiandae nisi est
       pariatur assumenda. Quo nesciunt eius ea earum sint rem libero incidunt id quae aperiam. Qui
       facere quos At velit omnis qui internos placeat cum pariatur quos rem culpa amet. Non omnis
@@ -58,20 +58,16 @@ export default {
 </script>
 
 <style scoped>
-.project-container {
-  margin-bottom: 25px;
-}
-.project-container section {
-  margin-bottom: 150px;
-}
 .slider-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+  margin-bottom: 25px;
 }
-
+.text-container {
+  margin: 10px 0;
+}
 .slider {
   width: 100%;
   height: 400px; /* Set a fixed height for the slider */
@@ -88,21 +84,15 @@ img {
 
 .arrow-container {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
   padding: 10px 0;
 }
 
 .arrow {
   font-size: 2rem;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: black;
+  user-select: none;
   border: none;
   padding: 10px;
   cursor: pointer;
-}
-
-.arrow:hover {
-  background: rgba(0, 0, 0, 0.7);
 }
 </style>

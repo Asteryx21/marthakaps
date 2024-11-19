@@ -104,6 +104,12 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.main-content {
+  height: 100vh;
+  padding-top: 16em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
 /* Footer Styles */
 .footer {
   /* position: sticky; */
@@ -138,6 +144,16 @@ export default {
 @media (max-width: 768px) {
   .social-icon {
     font-size: 16px;
+  }
+}
+@media (min-height: 1170px) {
+  .main-content {
+    padding-top: 30em;
+  }
+}
+@media (min-height: 1506px) {
+  .main-content {
+    padding-top: 50em;
   }
 }
 </style>
