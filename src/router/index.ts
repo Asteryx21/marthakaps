@@ -1,8 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+// @ts-ignore
 import HomeView from '../views/HomeView.vue'
 // @ts-ignore
 import ProjectA from '../views/ProjectA.vue'
+// @ts-ignore
 import ProjectB from '@/views/ProjectB.vue'
+// @ts-ignore
 import ProjectC from '@/views/ProjectC.vue'
 
 const router = createRouter({

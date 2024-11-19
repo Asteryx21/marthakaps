@@ -1,16 +1,16 @@
 <template>
   <div class="project-container">
     <section class="slider-container">
-      <!-- Left Arrow -->
-      <button class="arrow left-arrow" @click="prevSlide">&#8592;</button>
-
       <!-- Image Display -->
       <div class="slider">
         <img :src="images[currentIndex]" alt="Slider Image" />
       </div>
 
-      <!-- Right Arrow -->
-      <button class="arrow right-arrow" @click="nextSlide">&#8594;</button>
+      <!-- Arrow Buttons (Below the Image) -->
+      <div class="arrow-container">
+        <button class="arrow left-arrow" @click="prevSlide">&#8592;</button>
+        <button class="arrow right-arrow" @click="nextSlide">&#8594;</button>
+      </div>
     </section>
 
     <section>
@@ -35,10 +35,14 @@ export default {
   data() {
     return {
       currentIndex: 0,
+
       images: [
-        'https://placehold.co/400',
-        'https://placehold.co/600',
-        'https://placehold.co/600x400',
+        'src/assets/photos/1.jpg',
+        'src/assets/photos/IMG_20240526_074433.jpg',
+        'src/assets/photos/IMG_20240526_074518.jpg',
+        'src/assets/photos/IMG_20240526_074548.jpg',
+        'src/assets/photos/IMG_20240526_074611.jpg',
+        'src/assets/photos/IMG_20240526_074638.jpg',
       ],
     }
   },
@@ -62,34 +66,42 @@ export default {
 }
 .slider-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 700px;
 }
 
 .slider {
+  width: 100%;
+  height: 400px; /* Set a fixed height for the slider */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
 }
 
 img {
-  z-index: 1;
+  width: 100%; /* Make the image responsive */
+  height: 100%; /* Ensure the image fits the fixed height */
+  object-fit: contain;
 }
 
-.left-arrow {
-  margin-left: 10px;
+.arrow-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
 }
 
-.right-arrow {
-  margin-right: 10px;
-}
 .arrow {
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
   cursor: pointer;
 }
+
 .arrow:hover {
   background: rgba(0, 0, 0, 0.7);
 }
