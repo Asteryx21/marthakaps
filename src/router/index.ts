@@ -1,9 +1,12 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
+// @ts-ignore
+import ProjectA from '../views/ProjectA.vue'
+import ProjectB from '@/views/ProjectB.vue'
+import ProjectC from '@/views/ProjectC.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -11,12 +14,19 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: AboutView,
+      path: '/project-1',
+      name: 'project-1',
+      component: ProjectA,
+    },
+    {
+      path: '/project-2',
+      name: 'project-2',
+      component: ProjectB,
+    },
+    {
+      path: '/project-3',
+      name: 'project-3',
+      component: ProjectC,
     },
   ],
 })

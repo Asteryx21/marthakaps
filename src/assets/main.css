@@ -18,19 +18,14 @@ body {
   color: #2c3e50;
 }
 
-/* Navbar container */
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70px;
-  background-color: #ffcc00;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.name-item {
+  margin: 0 15px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #2c3e50;
 }
-
 /* Styling for navigation links */
 .nav-link {
   margin: 0 15px;
@@ -63,4 +58,74 @@ body {
   background-color: #cc0000; /* Active color */
   color: white; /* Text color for active link */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Stronger shadow for active link */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button styling */
+.dropdown-button {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Add a down arrow with CSS */
+.dropdown-arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid white; /* Arrow color */
+  transition: transform 0.3s ease;
+}
+
+/* Rotate the arrow when the dropdown is visible */
+.dropdown-button:focus .dropdown-arrow,
+.dropdown-button:hover .dropdown-arrow {
+  transform: translateY(-2px);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Position directly below the button */
+  left: 0; /* Align to the left of the button */
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 151;
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  color: #2c3e50;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f4f4f4;
+  color: #000;
 }
