@@ -37,12 +37,12 @@ export default {
       currentIndex: 0,
 
       images: [
-        'src/assets/photos/1.jpg',
-        'src/assets/photos/IMG_20240526_074433.jpg',
-        'src/assets/photos/IMG_20240526_074518.jpg',
-        'src/assets/photos/IMG_20240526_074548.jpg',
-        'src/assets/photos/IMG_20240526_074611.jpg',
-        'src/assets/photos/IMG_20240526_074638.jpg',
+        '/assets/photos/1.jpg',
+        '/assets/photos/IMG_20240526_074433.jpg',
+        '/assets/photos/IMG_20240526_074518.jpg',
+        '/assets/photos/IMG_20240526_074548.jpg',
+        '/assets/photos/IMG_20240526_074611.jpg',
+        '/assets/photos/IMG_20240526_074638.jpg',
       ],
     }
   },
