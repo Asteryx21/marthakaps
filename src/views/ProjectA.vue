@@ -1,98 +1,60 @@
 <template>
-  <div class="project-container">
-    <section class="slider-container">
-      <!-- Image Display -->
-      <div class="slider">
-        <img :src="images[currentIndex]" alt="Slider Image" loading="lazy" />
-      </div>
-
-      <!-- Arrow Buttons (Below the Image) -->
-      <div class="arrow-container">
-        <span class="arrow" @click="prevSlide">&#8592;</span>
-        <span class="arrow" @click="nextSlide">&#8594;</span>
-      </div>
-    </section>
-
-    <section class="text-container">
-      Lorem ipsum dolor sit amet. Sit architecto officiis quo rerum velit ut repudiandae nisi est
-      pariatur assumenda. Quo nesciunt eius ea earum sint rem libero incidunt id quae aperiam. Qui
-      facere quos At velit omnis qui internos placeat cum pariatur quos rem culpa amet. Non omnis
-      velit rem impedit voluptatem sed magni dicta sed ipsum internos et suscipit laboriosam et
-      velit nesciunt non tempore magni. Eum repellat nulla hic omnis velit non harum earum ut quam
-      voluptatem ut velit enim id rerum nihil et dolorem voluptas? Ut aspernatur cupiditate et
-      reprehenderit fugit ea reprehenderit repudiandae et sunt similique ut dignissimos totam et
-      deleniti suscipit. Et quia nisi sit enim obcaecati ut natus necessitatibus? Est quia ipsam sed
-      voluptates quibusdam quo adipisci dolorem cum quam mollitia sed tenetur voluptatem. Vel nihil
-      Quis ut sunt facere qui quia voluptatem et minus autem ea dolorem libero eos excepturi dolore
-      et delectus Quis?
-    </section>
-  </div>
+  <Project :images="images" />
 </template>
 
 <script>
+import Project from '@/components/Project.vue'
 export default {
-  name: 'Slider',
+  components: {
+    Project,
+  },
   data() {
     return {
-      currentIndex: 0,
-
       images: [
-        '/assets/photos/1.jpg',
-        '/assets/photos/IMG_20240526_074433.jpg',
-        '/assets/photos/IMG_20240526_074518.jpg',
-        '/assets/photos/IMG_20240526_074548.jpg',
-        '/assets/photos/IMG_20240526_074611.jpg',
-        '/assets/photos/IMG_20240526_074638.jpg',
+        '/assets/photos/000 1 1.jpg',
+        '/assets/photos/000 2 1.jpg',
+        '/assets/photos/000 3.jpg',
+        '/assets/photos/001 1 1.jpg',
+        '/assets/photos/001 2 1.jpg',
+        '/assets/photos/001 3.jpg',
+        '/assets/photos/002 1 2.jpg',
+        '/assets/photos/002 2.jpg',
+        '/assets/photos/002 3.jpg',
+        '/assets/photos/003 1 2.jpg',
+        '/assets/photos/003 2.jpg',
+        '/assets/photos/003 3.jpg',
+        '/assets/photos/004 2.jpg',
+        '/assets/photos/004 3.jpg',
+        '/assets/photos/005 1 1.jpg',
+        '/assets/photos/005 2 1.jpg',
+        '/assets/photos/005 3.jpg',
+        '/assets/photos/006 1 1.jpg',
+        '/assets/photos/006 3.jpg',
+        '/assets/photos/006 4.jpg',
+        '/assets/photos/007 2.jpg',
+        '/assets/photos/007 3.jpg',
+        '/assets/photos/008 1 1.jpg',
+        '/assets/photos/008 2.jpg',
+        '/assets/photos/009 1.jpg',
+        '/assets/photos/010 2.jpg',
+        '/assets/photos/010 3.jpg',
+        '/assets/photos/011 1.jpg',
+        '/assets/photos/012 2.jpg',
+        '/assets/photos/012 3.jpg',
+        '/assets/photos/013 1.jpg',
+        '/assets/photos/014 1.jpg',
+        '/assets/photos/015 1.jpg',
+        '/assets/photos/016 1.jpg',
+        '/assets/photos/017 1.jpg',
+        '/assets/photos/018 1.jpg',
+        '/assets/photos/019 1.jpg',
+        '/assets/photos/020 1.jpg',
+        '/assets/photos/023 1.jpg',
+        '/assets/photos/025 1.jpg',
+        '/assets/photos/0026 1.jpg',
+        '/assets/photos/28 1.jpg',
       ],
     }
   },
-  methods: {
-    prevSlide() {
-      this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length
-    },
-    nextSlide() {
-      this.currentIndex = (this.currentIndex + 1) % this.images.length
-    },
-  },
 }
 </script>
-
-<style scoped>
-.slider-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 25px;
-}
-.text-container {
-  margin: 10px 0;
-}
-.slider {
-  width: 100%;
-  height: 400px; /* Set a fixed height for the slider */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-img {
-  width: 100%; /* Make the image responsive */
-  height: 100%; /* Ensure the image fits the fixed height */
-  object-fit: contain;
-}
-
-.arrow-container {
-  display: flex;
-  padding: 10px 0;
-}
-
-.arrow {
-  font-size: 2rem;
-  color: black;
-  user-select: none;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-</style>
