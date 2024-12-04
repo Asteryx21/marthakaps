@@ -37,10 +37,7 @@ export default {
 }
 
 .main-content {
-  /* height: 100vh; */
-  padding-top: 16em;
-  padding-left: 2em;
-  padding-right: 2em;
+  height: 1000px;
 }
 /* Footer Styles */
 .footer {
@@ -51,14 +48,18 @@ export default {
   height: 50px;
 }
 
-@media (min-height: 1170px) {
+@media (max-width: 452px) {
   .main-content {
-    padding-top: 30em;
+    display: flex;
+    align-items: center;
+    height: 1500px;
   }
 }
-@media (min-height: 1506px) {
+@media (min-height: 1140px) {
   .main-content {
-    padding-top: 50em;
+    display: flex;
+    align-items: center;
+    height: 1400px;
   }
 }
 @media (max-width: 332px) {

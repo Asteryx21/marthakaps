@@ -1,12 +1,20 @@
 <template>
   <div class="project-container">
     <section class="slider-container">
-      <!-- Image Display -->
+      <!-- Multiple Images -->
       <div class="slider">
-        <img :src="images[currentIndex]" alt="Slider Image" loading="lazy" />
+        <img
+          v-for="(image, index) in images"
+          :key="index"
+          :src="index === currentIndex ? image : null"
+          :alt="'Slider Image ' + (index + 1)"
+          :loading="index === currentIndex ? 'lazy' : null"
+          decoding="async"
+          :class="{ visible: index === currentIndex, hidden: index !== currentIndex }"
+        />
       </div>
 
-      <!-- Arrow Buttons (Below the Image) -->
+      <!-- Arrow Buttons -->
       <div class="arrow-container">
         <span class="arrow" @click="prevSlide">&#8592;</span>
         <span class="indicator">{{ currentIndex + 1 }}/{{ images.length }}</span>
@@ -62,22 +70,29 @@ export default {
   margin-bottom: 25px;
 }
 .text-container {
-  margin: 10px 0;
+  margin: 0 50px;
 }
 .slider {
   width: 100%;
-  height: 400px; /* Set a fixed height for the slider */
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-img {
-  width: 100%; /* Make the image responsive */
-  height: 100%; /* Ensure the image fits the fixed height */
+.slider img {
+  display: none;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  transition: opacity 0.5s ease;
 }
-
+.slider img.visible {
+  display: block; /* Only show the visible image */
+}
+.slider img.hidden {
+  opacity: 0; /* Smoothly fade out hidden images */
+}
 .arrow-container {
   display: flex;
   align-items: center; /* Center the arrows and indicator vertically */
