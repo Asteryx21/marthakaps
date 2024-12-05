@@ -1,7 +1,7 @@
 <template>
   <div class="project-container">
     <section class="slider-container">
-      <!-- Multiple Images -->
+      <!-- Slider -->
       <div class="slider">
         <img
           v-for="(image, index) in images"
@@ -14,30 +14,31 @@
         />
       </div>
 
-      <!-- Arrow Buttons -->
+      <!-- Arrows and Indicator -->
       <div class="arrow-container">
-        <span class="arrow" @click="prevSlide">&#8592;</span>
-        <span class="indicator">{{ currentIndex + 1 }}/{{ images.length }}</span>
-        <span class="arrow" @click="nextSlide">&#8594;</span>
+        <span class="arrow left-arrow" @click="prevSlide">
+          <font-awesome-icon :icon="['fas', 'angle-left']" />
+        </span>
+        <!-- <span class="indicator">{{ currentIndex + 1 }}/{{ images.length }}</span> -->
+        <span class="arrow right-arrow" @click="nextSlide">
+          <font-awesome-icon :icon="['fas', 'angle-right']" />
+        </span>
       </div>
     </section>
 
+    <!-- Text Content -->
     <section class="text-container">
-      Lorem ipsum dolor sit amet. Sit architecto officiis quo rerum velit ut repudiandae nisi est
-      pariatur assumenda. Quo nesciunt eius ea earum sint rem libero incidunt id quae aperiam. Qui
-      facere quos At velit omnis qui internos placeat cum pariatur quos rem culpa amet. Non omnis
-      velit rem impedit voluptatem sed magni dicta sed ipsum internos et suscipit laboriosam et
-      velit nesciunt non tempore magni. Eum repellat nulla hic omnis velit non harum earum ut quam
-      voluptatem ut velit enim id rerum nihil et dolorem voluptas? Ut aspernatur cupiditate et
-      reprehenderit fugit ea reprehenderit repudiandae et sunt similique ut dignissimos totam et
-      deleniti suscipit. Et quia nisi sit enim obcaecati ut natus necessitatibus? Est quia ipsam sed
-      voluptates quibusdam quo adipisci dolorem cum quam mollitia sed tenetur voluptatem. Vel nihil
-      Quis ut sunt facere qui quia voluptatem et minus autem ea dolorem libero eos excepturi dolore
-      et delectus Quis?
+      <slot></slot>
     </section>
   </div>
 </template>
+
 <script>
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+library.add(faAngleLeft, faAngleRight)
+
 export default {
   props: {
     images: {
@@ -60,24 +61,27 @@ export default {
   },
 }
 </script>
-
 <style scoped>
-.slider-container {
+.project-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Optional: Adjust based on your design */
   margin-bottom: 25px;
 }
-.text-container {
-  margin: 0 50px;
-}
+
 .slider {
   width: 100%;
-  height: 600px;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .slider img {
@@ -88,30 +92,79 @@ export default {
   transition: opacity 0.5s ease;
 }
 .slider img.visible {
-  display: block; /* Only show the visible image */
+  display: block;
 }
 .slider img.hidden {
-  opacity: 0; /* Smoothly fade out hidden images */
-}
-.arrow-container {
-  display: flex;
-  align-items: center; /* Center the arrows and indicator vertically */
-  padding: 10px 0;
+  opacity: 0;
 }
 
+/* Arrow Styling */
 .arrow {
-  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
   color: black;
   user-select: none;
-  border: none;
-  padding: 10px;
   cursor: pointer;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.arrow i {
+  font-size: 1.5rem; /* Adjust the icon size */
+}
+
+.arrow.left-arrow {
+  left: -50px;
+}
+.arrow.right-arrow {
+  right: -50px;
+}
+
+/* Indicator Styling */
 .indicator {
+  text-align: center;
   font-size: 1.2rem;
-  margin: 0 10px;
+  margin-top: 10px;
   color: gray;
   user-select: none;
+}
+
+/* Text Container */
+.text-container {
+  margin: 0 50px;
+  text-align: justify;
+}
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 898px) {
+  .arrow {
+    position: static; /* Reset position */
+    margin: 10px 5px; /* Add some margin */
+    transform: none; /* Reset transform */
+    background: none; /* Optional: Remove background */
+    font-size: 2rem; /* Adjust size */
+    border-radius: 0; /* Remove rounded edges */
+  }
+
+  .slider-container {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;
+  }
+
+  .arrow-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between arrows */
+    margin-top: 10px;
+  }
 }
 </style>

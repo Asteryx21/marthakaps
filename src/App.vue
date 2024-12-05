@@ -4,7 +4,7 @@
     <main class="main-content">
       <RouterView />
     </main>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
@@ -23,21 +23,25 @@ export default {
 .app-container {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
-  position: sticky;
-  background-color: white;
-  top: 0;
-  z-index: 150;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  color: #333;
+  margin: 25px;
+  z-index: 1;
 }
 
 .main-content {
-  height: 1000px;
+  display: flex;
+  align-items: center;
+  /* height: 100vh; */
+  width: 100%;
+  height: 100%;
 }
 /* Footer Styles */
 .footer {
@@ -48,10 +52,8 @@ export default {
   height: 50px;
 }
 
-@media (max-width: 452px) {
+/* @media (max-width: 452px) {
   .main-content {
-    display: flex;
-    align-items: center;
     height: 1500px;
   }
 }
@@ -61,14 +63,13 @@ export default {
     align-items: center;
     height: 1400px;
   }
-}
-@media (max-width: 332px) {
-  .dropdown {
-    margin: 0;
-    padding: 0;
+} */
+@media (max-width: 298px) {
+  .app-container {
+    height: auto;
   }
 }
-@media (max-width: 277px) {
+/* @media (max-width: 277px) {
   .navbar > * {
     font-size: 10px;
   }
@@ -81,5 +82,5 @@ export default {
   .navbar {
     flex-direction: column;
   }
-}
+} */
 </style>

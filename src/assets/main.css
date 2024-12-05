@@ -20,148 +20,147 @@ body {
 }
 
 .name-item {
-  margin: 0 15px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
   text-decoration: none;
-  color: #2c3e50;
-}
-/* Styling for navigation links */
-.nav-link {
-  margin: 0 15px;
-  padding: 10px 20px;
-  background-color: #ff0000;
-  color: white;
-  text-decoration: none;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  color: #333;
+  font-size: 24px;
 }
 
-/* Hover effect for nav links */
-.nav-link:hover {
-  background-color: #cc0000;
-  transform: translateY(-2px);
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Active link effect */
-.nav-link:active {
-  background-color: #990000;
-}
-
-/* Styling for active navigation link */
-.active-nav-link {
-  background-color: #cc0000; /* Active color */
-  color: white; /* Text color for active link */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Stronger shadow for active link */
-}
-
+/* Hamburger/Close Button */
 .dropdown {
   position: relative;
-  display: inline-block;
-  margin: 0 15px;
-  padding: 0 20px;
 }
 
-/* Dropdown button styling */
 .dropdown-button {
-  background-color: #ff0000;
-  color: white;
+  background: none;
   border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  justify-content: center;
+  width: 50px; /* Make the button wider for better click area */
+  height: 50px; /* Same height as the width */
+  padding: 0;
 }
 
-/* Add a down arrow with CSS */
-.dropdown-arrow {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid white; /* Arrow color */
-  transition: transform 0.3s ease;
+.hamburger-icon {
+  position: relative;
+  width: 25px; /* Consistent width for all lines */
+  height: 3px;
+  background-color: #333;
+  transition:
+    transform 0.3s,
+    background-color 0.3s;
+  z-index: 2;
 }
-
-/* Rotate the arrow when the dropdown is visible */
-.dropdown-button:focus .dropdown-arrow,
-.dropdown-button:hover .dropdown-arrow {
-  transform: translateY(-2px);
-}
-
-.dropdown-menu {
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
   position: absolute;
-  top: 100%; /* Position directly below the button */
-  left: 0; /* Align to the left of the button */
-  background-color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  overflow: hidden;
-  z-index: 151;
+  width: 100%; /* Match the width of the main line */
+  height: 3px; /* Consistent height for all lines */
+  background-color: #333;
+  left: 0; /* Align with the main line */
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+}
+
+.hamburger-icon::before {
+  top: -8px; /* Proper vertical spacing */
+}
+
+.hamburger-icon::after {
+  bottom: -8px; /* Proper vertical spacing */
+}
+
+/* Open State: Transform to "X" */
+.hamburger-icon.open {
+  background-color: transparent;
+}
+
+.hamburger-icon.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburger-icon.open::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+/* Full-Screen Dropdown Menu */
+.full-page-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  margin-top: 8px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Dropdown items */
-.dropdown-item {
-  display: block;
-  padding: 10px 20px;
-  color: #2c3e50;
+/* Transitions for Menu */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.menu-item {
+  font-size: 24px;
+  color: #333;
+  margin: 20px 0;
+  cursor: pointer;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
 }
 
-.dropdown-item:hover {
-  background-color: #f4f4f4;
-  color: #000;
+.menu-item:hover {
+  text-decoration: underline;
 }
 
-.footer p {
-  margin: 0;
+/* Arrow for Projects */
+.dropdown-arrow {
+  margin-left: 10px;
+  transition: transform 0.3s;
 }
 
-/* Social Media Icons */
-.social-media {
+.dropdown-arrow.rotated {
+  transform: rotate(90deg);
+}
+
+.projects-dropdown {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-.social-icon {
-  color: white;
-  font-size: 18px;
-  margin: 0 10px;
-  transition: color 0.3s ease;
+.dropdown-item {
+  font-size: 20px;
+  color: #333;
+  text-decoration: none;
 }
 
-.social-icon:hover {
-  color: #ff6347; /* Change color on hover (tomato color as an example) */
+.slide-enter-active,
+.slide-leave-active {
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease;
 }
 
-/* Responsive Footer */
-
-@media (max-width: 768px) {
-  .social-icon {
-    font-size: 16px;
-  }
-}
-@media (max-width: 332px) {
-  .social-icon {
-    font-size: 14px;
-  }
+.slide-enter-from,
+.slide-leave-to {
+  max-height: 0;
+  opacity: 0;
 }

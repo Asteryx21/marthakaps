@@ -2,6 +2,10 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 // @ts-ignore
 import HomeView from '../views/HomeView.vue'
 // @ts-ignore
+import About from '../views/About.vue'
+// @ts-ignore
+import Contact from '../views/Contact.vue'
+// @ts-ignore
 import ProjectA from '../views/ProjectA.vue'
 // @ts-ignore
 import ProjectB from '@/views/ProjectB.vue'
@@ -15,6 +19,16 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
     },
     {
       path: '/project-1',
