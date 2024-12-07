@@ -81,12 +81,20 @@ export default {
         return
       }
 
+      const formData = new FormData()
+      formData.append('service_id', 'service_x41j6zq')
+      formData.append('template_id', 'template_c19dk46')
+      formData.append('user_id', '6C-TwozL_Uk70Ztsl')
+      formData.append('from_name', form.name)
+      formData.append('from_email', form.email)
+      formData.append('message', form.message)
+      formData.append('subject', `Portfolio message from: ${form.email}`)
+
       try {
-        await axios.post('https://example.com/api/send-email', {
-          to: 'marthakaps@gmail.com',
-          subject: `New message from ${form.name}`,
-          email: form.email,
-          message: form.message,
+        await axios.post('https://api.emailjs.com/api/v1.0/email/send-form', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
         })
         alert('Email sent successfully!')
         form.name = ''

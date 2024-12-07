@@ -69,6 +69,11 @@ export default {
     height: auto;
   }
 }
+/* @media (max-height: 938px) {
+  .app-container {
+    height: auto;
+  }
+} */
 /* @media (max-width: 277px) {
   .navbar > * {
     font-size: 10px;

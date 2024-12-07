@@ -66,6 +66,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: calc(100% - 50px);
 }
 
 .slider-container {
