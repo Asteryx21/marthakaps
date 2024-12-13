@@ -140,7 +140,7 @@ export default {
 
 /* Text Container */
 .text-container {
-  margin: 0 50px;
+  margin: 50px;
   text-align: justify;
 }
 

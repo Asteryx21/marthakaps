@@ -36,13 +36,12 @@ export default {
   z-index: 1;
 }
 
-.main-content {
+/* .main-content {
   display: flex;
   align-items: center;
-  /* height: 100vh; */
   width: 100%;
   height: 100%;
-}
+} */
 /* Footer Styles */
 .footer {
   background-color: #333;
