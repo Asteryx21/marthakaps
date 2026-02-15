@@ -13,7 +13,7 @@
         <div v-if="dropdownVisible" class="full-page-menu">
           <div class="menu-content">
             <RouterLink to="/about" class="menu-item" @click="closeMenu">About</RouterLink>
-            <RouterLink to="/contact" class="menu-item" @click="closeMenu">Contact</RouterLink>
+<!--            <RouterLink to="/contact" class="menu-item" @click="closeMenu">Contact</RouterLink>-->
             <div class="menu-item" @click="toggleProjects">
               Projects
               <span :class="['dropdown-arrow', projectsVisible ? 'rotated' : '']"></span>
