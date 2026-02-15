@@ -3,7 +3,6 @@
     <div class="full-page-menu">
       <div class="menu-content">
         <RouterLink to="/about" class="menu-item">About</RouterLink>
-        <RouterLink to="/contact" class="menu-item">Contact</RouterLink>
         <div class="menu-item" @click="toggleProjects">
           Projects
           <span :class="['dropdown-arrow', projectsVisible ? 'rotated' : '']"></span>
